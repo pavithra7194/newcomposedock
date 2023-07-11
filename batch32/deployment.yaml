@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dotnet6-app
+  labels:
+    app: dotnet6
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dotnet6
+  template:
+    metadata:
+      labels:
+        app: dotnet6
+    spec:
+      containers:
+        - name: dotnet6
+          image: your-registry/dotnet6-app:latest  # Replace with your Docker image
+          ports:
+            - containerPort: 5000
