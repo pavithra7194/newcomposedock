@@ -1,21 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: dotnet6-app
+  name: dotnet
+  namespace: pavithra
   labels:
-    app: dotnet6
+    app: dotnet
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: dotnet6
+      app: dotnet
   template:
     metadata:
       labels:
-        app: dotnet6
+        app: dotnet
     spec:
       containers:
-        - name: dotnet6
-          image: your-registry/dotnet6-app:latest  # Replace with your Docker image
+        - name: dotnet
+          image: pavithra7194/dotnet:1.2.0  # Replace with your Docker image
           ports:
             - containerPort: 5000
