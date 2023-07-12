@@ -5,6 +5,7 @@ metadata:
 spec:
   selector:
     app: dotnet
+    namespace: pavithra
   ports:
     - protocol: TCP
       port: 5000
