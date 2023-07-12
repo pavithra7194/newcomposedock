@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: dotnet6-service
+  name: dotnet
 spec:
   selector:
-    app: dotnet6
+    app: dotnet
   ports:
     - protocol: TCP
-      port: 80
+      port: 5000
       targetPort: 5000
   type: LoadBalancer
