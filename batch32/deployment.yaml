@@ -16,7 +16,9 @@ spec:
         app: dotnet
     spec:
       containers:
-        - name: dotnet
-          image: pavithra7194/dotnet:1.2.0  # Replace with your Docker image
-          ports:
-            - containerPort: 5000
+      - name: dotnet
+        image: bermtec.azurecr.io/imageacr # Replace with your Docker image
+        ports:
+        - containerPort: 5000
+      imagePullSecrets:
+        - name: pavi
