@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: dotnet
-        image: bermtec.azurecr.io/imageacr # Replace with your Docker image
+        image: bermtec.azurecr.io/imageacr:1.0 # Replace with your Docker image
         ports:
         - containerPort: 5000
       imagePullSecrets:
