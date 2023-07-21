@@ -13,8 +13,8 @@ spec:
   strategy:
     type: RollingUpdate
     rollingUpdate:
-      maxSurge: 1 # Set the maximum number of replicas that can be created above the desired number of replicas during the update
-      maxUnavailable: 0 # Set the maximum number of replicas that can be unavailable during the update
+      maxSurge: 3 # Set the maximum number of replicas that can be created above the desired number of replicas during the update
+      maxUnavailable: 1 # Set the maximum number of replicas that can be unavailable during the update
   template:
     metadata:
       labels:
