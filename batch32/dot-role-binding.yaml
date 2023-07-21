@@ -1,0 +1,13 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: dot-role-binding
+  namespace: pavithra
+subjects:
+- kind: ServiceAccount
+  name: dot-service-account
+  namespace: pavithra
+roleRef:
+  kind: Role
+  name: dot-role
+  apiGroup: rbac.authorization.k8s.io
