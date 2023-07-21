@@ -1,0 +1,19 @@
+apiVersion: autoscaling/v2beta2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: dot-hpa
+  namespace: pavithra
+spec:
+  scaleTargetRef:
+    kind: Deployment
+    name: dot
+    apiVersion: apps/v1
+  minReplicas: 1
+  maxReplicas: 10 # Set the maximum number of replicas as needed
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 50
