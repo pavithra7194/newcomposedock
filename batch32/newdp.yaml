@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dot
+  namespace: pavithra
+  labels:
+    app: dot
+spec:
+  replicas: 3 # Set the desired number of replicas
+  selector:
+    matchLabels:
+      app: dot
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1 # Set the maximum number of replicas that can be created above the desired number of replicas during the update
+      maxUnavailable: 0 # Set the maximum number of replicas that can be unavailable during the update
+  template:
+    metadata:
+      labels:
+        app: dot
+    spec:
+      containers:
+      - name: dot
+        image: pavithra7194/dotnet:1.0 # Replace with your Docker image
+        ports:
+        - containerPort: 5000
+      imagePullSecrets:
+        - name: pavi
