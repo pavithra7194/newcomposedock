@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: dot
-  namespace: pavithra
+  namespace: pavithrak
   labels:
     app: dot
 spec:
