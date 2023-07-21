@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-dot-traffic
+  namespace: pavithrak
+spec:
+  podSelector:
+    matchLabels:
+      app: dot
+  policyTypes:
+  - Ingress
+  - Egress
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          app: dot
+  egress:
+  - to:
+    - podSelector:
+        matchLabels:
+          app: dot
