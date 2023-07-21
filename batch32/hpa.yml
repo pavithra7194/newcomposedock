@@ -2,7 +2,7 @@ apiVersion: autoscaling/v2beta2
 kind: HorizontalPodAutoscaler
 metadata:
   name: dot-hpa
-  namespace: pavithra
+  namespace: pavithrak
 spec:
   scaleTargetRef:
     kind: Deployment
