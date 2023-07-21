@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: dotnet
+  name: dot
   namespace: pavithra
 spec:
   selector:
-    app: dotnet
+    app: dot
   ports:
     - protocol: TCP
       port: 5000
