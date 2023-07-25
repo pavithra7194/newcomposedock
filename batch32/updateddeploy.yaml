@@ -3,43 +3,40 @@ kind: Deployment
 metadata:
   name: dot
   namespace: pavithrak
-  labels:
-    app: dot
 spec:
-  replicas: 3 # Set the desired number of replicas
+  replicas: 3
   selector:
     matchLabels:
       app: dot
   strategy:
-    type: RollingUpdate
     rollingUpdate:
-      maxSurge: 3 # Set the maximum number of replicas that can be created above the desired number of replicas during the update
-      maxUnavailable: 1 # Set the maximum number of replicas that can be unavailable during the update
+      maxSurge: 3
+      maxUnavailable: 1
+    type: RollingUpdate
   template:
     metadata:
       labels:
         app: dot
     spec:
       containers:
-      - name: dot
-        image: nikitha2109/nikithaimage:1.0.1 # Replace with your Docker image
+        - name: dot
+          image: nikitha2109/nikithaimage:1.0.1
+          ports:
+            - containerPort: 5000
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: 5000
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: 5000
+            initialDelaySeconds: 15
+            periodSeconds: 10
       tolerations:
-      - key: special
-        operator: "Equal"
-        value: "example"
-        effect: "NoSchedule"
-        ports:
-        - containerPort: 5000
-        livenessProbe: # Add the liveness probe definition here
-          httpGet:
-            path: /healthz
-            port: 5000
-          initialDelaySeconds: 15 # Wait 15 seconds before running the first probe
-          periodSeconds: 10 # Probe every 10 seconds
-        readinessProbe: # Add the readiness probe definition here
-          httpGet:
-            path: /healthz
-            port: 5000
-          initialDelaySeconds: 5 # Wait 5 seconds before running the first probe
-          periodSeconds: 5 # Probe every 5 seconds
-      
+        - effect: NoSchedule
+          key: special
+          operator: Equal
+          value: example
