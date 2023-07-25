@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: dot
-        image: pavithra7194/dotnet:1.0
+        image: nikitha2109/nikithaimage:1.0.1
         ports:
         - containerPort: 80
 
