@@ -23,11 +23,11 @@ spec:
       containers:
       - name: dot
         image: nikitha2109/nikithaimage:1.0.1 # Replace with your Docker image
-    #  tolerations:
-    #  - key: special
-     #   operator: "Equal"
-      #  value: "example"
-       # effect: "NoSchedule"
+      tolerations:
+      - key: special
+        operator: "Equal"
+        value: "example"
+        effect: "NoSchedule"
         ports:
         - containerPort: 5000
         livenessProbe: # Add the liveness probe definition here
