@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+name: my-dotnet-chart
+version: 0.1.0
+kind: Deployment
+metadata:
+  name: dot
+  namespace: pragnya
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: dot
+  template:
+    metadata:
+      labels:
+        app: dot
+    spec:
+      containers:
+      - name: dot
+        image: pragnya/pragnya:1.0.1
+        ports:
+        - containerPort: 80
